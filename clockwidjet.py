@@ -1,0 +1,26 @@
+from tkinter import *
+from time import strftime
+root=Tk()
+frame1=LabelFrame(root,height=100,width=600,bg='blue')
+frame1.place(x=0,y=0)
+frame=LabelFrame(root,height=50,width=600,bg='blue')
+frame.place(x=0,y=90)
+lbl=Label(frame1,text="",font=("Arial 40 italic"), fg="white",bg="blue")
+lbl.place(x=0,y=0)
+lbl1=Label(frame1,text="Made By Satyam",font=("Arial 12 bold"), fg="black",bg="blue")
+lbl1.place(x=170,y=60)
+def time():
+    global string
+    h=strftime("%H")
+    m=strftime("%M")
+    s=strftime("%S")
+    p=strftime("%p")
+    string=(h+":"+m+":"+s+" "+p)
+    lbl.config(text=string)
+    lbl.after(1000,time)
+    #string.after(1000,time)
+time()
+root.title('clock')
+root.geometry("310x90+1050+0")
+root.resizable(False,False)
+root.mainloop()
